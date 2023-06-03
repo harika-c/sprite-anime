@@ -8,7 +8,7 @@ img.onload = function () {
 };
 const width = 57;
 const height = 63;
-const canvas = document.querySelector("canvas");
+const canvas = document.querySelector("canvas"); // always give tag name , then only canvas properties can be retrived in the next line
 const context = canvas.getContext("2d");
 console.log(context);
 
@@ -27,12 +27,8 @@ function init() {
     );
   }
 
-  // drawFrame(0, 0);
-  // drawFrame(width, width);
-  // drawFrame(0, width * 2);
-  // drawFrame(width * 2, width * 3);
-
   const cycleLoop = [0, 1, 0, 2];
+  const nextFrame = [1, 2, 3];
   let currentLoopIndex = 0;
   let frameCount = 0;
 
