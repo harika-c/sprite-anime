@@ -11,7 +11,9 @@ function init() {
   console.log("canvas", canvas);
   let context = canvas[0].getContext("2d");
 
-  context.canvas.width = context.canvas.height = clearWidth = clearHeight = 800; // Height & Width of the actual canvas->context, when set this the space when object moves gets extended (not when u apply css on id #farm-days) (or you can directly apply height and width attribute to canvas tag in html file , it works )
+  context.canvas.width = clearWidth = 800;
+  context.canvas.height = clearHeight = 75;
+  // Height & Width of the actual canvas->context, when set this the space when object moves gets extended (not when u apply css on id #farm-days) (or you can directly apply height and width attribute to canvas tag in html file , it works )
   console.log("contextxxx", context);
   srcWidth = 260;
   srcHeight = 253;
@@ -48,7 +50,7 @@ function init() {
   // context.clearRect(2, 0, canvas.width, canvas.height);
   // drawImage(3, 0, 1, 1, 3, 0, 1, 1);
 
-  let i = 0;
+  let frame = 0;
   const loop = [0, 1, 2, 3];
   let appearCount = 0;
   let speed = 0;
@@ -61,12 +63,12 @@ function init() {
     }
     speed = 0;
     context.clearRect(appearCount, 0, clearWidth, clearHeight);
-    drawImage(loop[i], 0, 1, 1, appearCount, 0, 1, 1);
+    drawImage(loop[frame], 0, 1, 1, appearCount, 0, 1, 1);
 
     appearCount = appearCount + 0.2;
-    i++;
-    if (i > 3) {
-      i = 0;
+    frame++;
+    if (frame > 3) {
+      frame = 0;
     }
 
     if (appearCount > 10) {
